@@ -20,12 +20,12 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p><strong>Last updated:</strong> March 18, 2026</p>
+  <p><strong>Last updated:</strong> March 22, 2026</p>
   <p>This Privacy Policy describes how PosAi ("we", "us", or "our") handles information in connection with your use of the PosAi mobile application ("App").</p>
 
   <h2>1. Information We Collect</h2>
   <p>The App may collect the following types of information:</p>
-  <p><strong>Account Information:</strong> When you register, we collect your full name, phone number, and optionally your email address to authenticate your account and identify you within your organization.</p>
+  <p><strong>Account Information:</strong> When you register, we collect your full name, phone number, optionally your email address, company name, and role (owner or staff) to authenticate your account and identify you within your organization.</p>
   <p><strong>Business Data:</strong> Product names, prices, sales records, inventory data, and employee commission information that you enter into the App. This data is stored securely in Supabase and used solely to provide the App's functionality.</p>
   <p><strong>Camera and Photo Library:</strong> The App requests access to your camera and photo library for the purposes described in Section 5.</p>
   <p><strong>Support Messages:</strong> When you contact support through the App, your message along with your name, phone number, and company name are collected to respond to your request.</p>
@@ -36,7 +36,8 @@
   — Authenticate users and manage access for owners and staff<br>
   — Display sales history, inventory, and reports within the App<br>
   — Generate AI-powered product recommendations for cashiers<br>
-  — Recognize inventory items from photos using AI<br>
+  — Recognize products from photos using AI (inventory screen, POS screen, and product creation)<br>
+  — Autofill product fields from a photo when adding a new product<br>
   — Respond to support requests<br>
   — Improve and optimize the App's performance</p>
 
@@ -53,18 +54,23 @@
 
   <p><strong>Supabase</strong> — Cloud database and authentication provider. All your account data, sales, products, and employees are stored in Supabase. Learn more: <a href="https://supabase.com/privacy">supabase.com/privacy</a></p>
 
-  <p><strong>Anthropic (Claude API)</strong> — AI processing service used for two features:</p>
+  <p><strong>Anthropic (Claude API)</strong> — AI processing service used for the following features:</p>
   <p>— <em>Cashier recommendations:</em> When items are added to the cart, the names of products in the cart and suggested products are sent to Anthropic's API to generate a short recommendation phrase for the cashier.<br>
-  — <em>Inventory photo recognition:</em> When you use the AI inventory scan feature, a photo taken by your camera (encoded as base64) and a list of your store's product names are sent to Anthropic's API for recognition. Anthropic does not retain this data after processing the request.</p>
-  <p>Learn more: <a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></p>
+  — <em>Inventory photo recognition (Inventory screen):</em> When you use the AI inventory scan feature, a photo taken by your camera and a list of your store's product names are sent to Anthropic's API for recognition.<br>
+  — <em>Product search by photo (POS screen):</em> When you use the AI camera on the cashier screen, a photo and your product list are sent to Anthropic's API to find matching products.<br>
+  — <em>Product autofill (Add Product screen):</em> When you photograph a product to create a new item, the photo is sent to Anthropic's API to automatically fill in the product name, price, and other fields.</p>
+  <p>In all cases, photos are transmitted securely over HTTPS. Anthropic does not retain images or data after processing the request. Learn more: <a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></p>
 
   <p><strong>Telegram (via Supabase Edge Function)</strong> — When you send a message through the in-app support chat, the following information is forwarded to our support Telegram bot: your name, phone number, company name, and the text of your message. This data is used solely to respond to your support request.</p>
 
   <h2>5. Camera and Photo Library Access</h2>
-  <p>The App uses your camera and photo library for three specific purposes:</p>
+  <p>The App uses your camera and photo library for five specific purposes:</p>
   <p>— <strong>Barcode scanning (POS screen):</strong> Scans product barcodes to quickly add items to the cart. The scanned data is used locally only and is never transmitted outside your device.<br>
   — <strong>Bank QR code upload (Settings):</strong> Allows you to upload or photograph your bank's payment QR code. The image URI is stored locally on your device only and is never uploaded to any server.<br>
-  — <strong>AI inventory recognition (Inventory screen):</strong> Takes a photo of your stock shelves and sends it to Anthropic's Claude API for AI-powered item recognition. The photo is transmitted securely over HTTPS and is not retained by Anthropic after processing.</p>
+  — <strong>AI inventory recognition (Inventory screen):</strong> Takes a photo of your stock shelves and sends it to Anthropic's Claude API for AI-powered item recognition.<br>
+  — <strong>AI product search by photo (POS screen):</strong> Takes a photo on the cashier screen and sends it to Anthropic's Claude API to find matching products in your catalog.<br>
+  — <strong>AI product autofill (Add Product screen):</strong> Photographs a product and sends the image to Anthropic's Claude API to automatically fill in product details when creating a new item.</p>
+  <p>Photos sent to Anthropic are transmitted securely over HTTPS and are not retained by Anthropic after processing.</p>
 
   <h2>6. No Advertising or Tracking</h2>
   <p>The App does not contain any advertising. We do not use any third-party analytics SDKs (such as Firebase Analytics, Amplitude, Mixpanel, or similar). We do not track your behavior across other apps or websites. No data is used for targeted advertising or sold to data brokers.</p>
